@@ -5,7 +5,7 @@ class Home extends Component {
   render() {
     return (
       <>
-        <QrComponent></QrComponent>
+        {/* <QrComponent></QrComponent> */}
       </>
     );
   }

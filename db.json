@@ -16,14 +16,60 @@
   "profile": {
     "name": "typicode"
   },
-  "asistencia": [
+  "assistance": [
     {
       "id": 1,
-      "horaIngreso": 120120121,
-      "horaSalida": 1304004343
+      "startTime": 120120121,
+      "endTime": 1304004343,
+      "userId": 74081840,
+      "status": "activo",
+      "idAssistance": 123,
+      "fullName": "Brayan Laureano"
     },
     {
+      "userId": "http://bit.ly/2jV85Kj",
+      "startTime": 120120121,
+      "endTime": 1304004343,
+      "status": "activo",
+      "idAssistance": 123,
+      "fullName": "Brayan Laureano",
       "id": 2
+    },
+    {
+      "userId": "74081840",
+      "startTime": 120120121,
+      "endTime": 1304004343,
+      "status": "activo",
+      "idAssistance": 123,
+      "fullName": "Brayan Laureano",
+      "id": 3
+    },
+    {
+      "userId": "74081840",
+      "startTime": 120120121,
+      "endTime": 1304004343,
+      "status": "activo",
+      "idAssistance": 123,
+      "fullName": "Brayan Laureano",
+      "id": 4
+    },
+    {
+      "userId": "74081840",
+      "startTime": 120120121,
+      "endTime": 1304004343,
+      "status": "activo",
+      "idAssistance": 123,
+      "fullName": "Brayan Laureano",
+      "id": 5
+    },
+    {
+      "userId": "74081840",
+      "startTime": 120120121,
+      "endTime": 1304004343,
+      "status": "activo",
+      "idAssistance": 123,
+      "fullName": "Brayan Laureano",
+      "id": 6
     }
   ]
 }

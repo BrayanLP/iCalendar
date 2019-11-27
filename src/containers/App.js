@@ -3,13 +3,15 @@ import QrReader from '../components/QrReader';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from '../pages/Home';
 import Asistencia from '../pages/Asistencia';
+import Ingreso from '../pages/Ingreso';
+import { Wrapper } from './style.js';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <Wrapper className="App">
         <Router>
           <div>
-            <nav>
+            {/* <nav>
               <ul>
                 <li>
                   <Link to="/">Home</Link>
@@ -17,8 +19,11 @@ class App extends Component {
                 <li>
                   <Link to="/asistencia">Asistencia</Link>
                 </li>
+                <li>
+                  <Link to="/ingreso">Ingreso</Link>
+                </li>
               </ul>
-            </nav>
+            </nav> */}
             <Switch>
               <Route exact path="/">
                 <Home></Home>
@@ -27,10 +32,13 @@ class App extends Component {
               <Route exact path="/asistencia">
                 <Asistencia></Asistencia>
               </Route>
+              <Route exact path="/ingreso">
+                <Ingreso></Ingreso>
+              </Route>
             </Switch>
           </div>
         </Router>
-      </div>
+      </Wrapper>
     );
   }
 }
