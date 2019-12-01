@@ -26,15 +26,14 @@ class App extends Component {
             </nav> */}
             <Switch>
               <Route exact path="/">
-                <Asistencia></Asistencia>
+                {/* <Asistencia></Asistencia> */}
+                <Ingreso></Ingreso>
               </Route>
 
               <Route exact path="/asistencia">
                 <Asistencia></Asistencia>
               </Route>
-              <Route exact path="/ingreso">
-                <Ingreso></Ingreso>
-              </Route>
+              <Route exact path="/ingreso"></Route>
             </Switch>
           </div>
         </Router>
