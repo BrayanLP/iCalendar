@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import QrReader from '../components/QrReader';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Home from '../pages/Home';
+// import QrReader from '../components/QrReader';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+// import Home from '../pages/Home';
 import Asistencia from '../pages/Asistencia';
 import Ingreso from '../pages/Ingreso';
 import { Wrapper } from './style.js';
@@ -26,7 +26,7 @@ class App extends Component {
             </nav> */}
             <Switch>
               <Route exact path="/">
-                <Home></Home>
+                <Asistencia></Asistencia>
               </Route>
 
               <Route exact path="/asistencia">

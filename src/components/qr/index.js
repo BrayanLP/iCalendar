@@ -5,17 +5,89 @@ import * as Yup from 'yup';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import qrAnimation from '../../assets/qr.gif';
+import Modal from 'react-modal';
+import good from '../../assets/good.svg';
+import night from '../../assets/night.svg';
+import { frases } from '../../helpers/frases';
+import styled from '@emotion/styled';
 const validation = Yup.object().shape({
   dni: Yup.string()
     .min(8, 'DNI minimo 8 caracteres')
     .max(8, 'DNI maximo 8 caracteres')
     .required('Required')
 });
+
+// import ListAssitance from '../containers/assistance/list';
+
+export const ModalStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  picture {
+    margin: 1rem 0;
+  }
+  span {
+    font-size: 25px;
+  }
+  h2 {
+    font-size: 30px;
+  }
+`;
+export const FraseDesign = styled.p`
+  color: gray;
+  display: block;
+  font-size: 16px;
+  padding: 0 1rem;
+  span {
+    display: block;
+    margin: 0.5rem 0;
+    font-size: 14px;
+    font-weight: bold;
+  }
+`;
+
+const styleGood = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    width: '400px',
+    height: '500px',
+    border: 'none'
+  },
+  overlay: {
+    background: '#2ecc71'
+  }
+};
+const styleNight = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    width: '400px',
+    height: '500px',
+    border: 'none'
+  },
+  overlay: {
+    background: '#2c3e50'
+  }
+};
+
 export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoading: false,
+      openModal: false,
       userId: 'No hay resultados'
     };
   }
@@ -27,7 +99,7 @@ export default class extends Component {
     getAsistencias();
   }
   handleScan = (
-    value,
+    values,
     { setFieldValue, submitForm, errors, touched, setTouched }
   ) => {
     /**
@@ -46,29 +118,36 @@ export default class extends Component {
      * Valida que exista una data
      */
 
-    if (!value) return;
-    setFieldValue('dni', value, false);
+    if (!values) return;
+    setFieldValue('dni', values, false);
+    console.log('TCL: extends -> value', values);
     submitForm();
   };
-  handleError = err => {
-    console.error(err);
+  handleSubmit = values => {
+    this.setState({ isLoading: true });
+    setTimeout(() => {
+      this.setState({ openModal: true });
+      setTimeout(() => {
+        this.setState({ openModal: false, isLoading: false });
+      }, 5000);
+    }, 3000);
   };
+  handleError = err => {};
   notify = message => {
     toast(message);
   };
   render() {
-    const { isFetching } = this.props;
-    const { isLoading } = this.state;
+    // const { isFetching } = this.props;
+    const { isLoading, openModal } = this.state;
+
+    const numberRamdon = Math.floor(Math.random() * 10);
     return (
       <>
         <Formik
           initialValues={{ dni: '' }}
           validationSchema={validation}
-          onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              setSubmitting(false);
-            }, 400);
+          onSubmit={values => {
+            this.handleSubmit(values);
           }}
         >
           {props => (
@@ -123,6 +202,35 @@ export default class extends Component {
                 {/* {errors.dni && touched.dni && toast(errors.dni)} */}
               </div>
               <ToastContainer />
+              <Modal ariaHideApp={false} isOpen={openModal} style={styleGood}>
+                <ModalStyle>
+                  <picture>
+                    <img width="150px" src={good} alt="Good"></img>
+                  </picture>
+
+                  <span>Bienvenido</span>
+                  <h2>Brayan Laureano Paucar</h2>
+
+                  <FraseDesign>
+                    {frases[numberRamdon].frase}
+                    <span>{frases[numberRamdon].author}</span>
+                  </FraseDesign>
+                </ModalStyle>
+              </Modal>
+              <Modal ariaHideApp={false} isOpen={false} style={styleNight}>
+                <ModalStyle>
+                  <picture>
+                    <img width="150px" src={night} alt="Night"></img>
+                  </picture>
+                  <span>Hasta mañana</span>
+                  <h2>Brayan Laureano Paucar</h2>
+
+                  <FraseDesign>
+                    "{frases[numberRamdon].frase}"
+                    <span>{frases[numberRamdon].author}</span>
+                  </FraseDesign>
+                </ModalStyle>
+              </Modal>
             </form>
           )}
         </Formik>
