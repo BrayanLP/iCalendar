@@ -42,3 +42,62 @@ export const CardFooter = styled.div`
     }
   }
 `;
+
+export const CardDashboard = styled.div`
+  width: 230px;
+  min-width: 230px;
+  height: 100px;
+  background: white;
+  color: white;
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  font-size: 20px;
+  border-radius: 1rem;
+  &:hover {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  }
+  .title {
+    font-weight: bold;
+    font-size: 24px;
+    padding-bottom: 6px;
+  }
+  &:nth-child(n) {
+    background: #18dcff;
+  }
+  &:nth-child(2n) {
+    background: #ffaf40;
+  }
+  &:nth-child(3n) {
+    background: #7158e2;
+  }
+  &:nth-child(4n) {
+    background: #3ae374;
+  }
+  &:nth-child(5n) {
+    background: #4b4b4b;
+  }
+`;
+export const CardDashboardLists = styled.section`
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+`;
+
+export const Col2 = styled.section`
+  display: flex;
+  flex-flow: row;
+  & > div {
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    width: 50%;
+    background: white;
+    height: 450px;
+    overflow-y: auto;
+  }
+`;

@@ -5,12 +5,13 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Asistencia from '../pages/Asistencia';
 import Ingreso from '../pages/Ingreso';
 import { Wrapper } from './style.js';
+import Report from '../pages/Report';
 class App extends Component {
   render() {
     return (
       <Wrapper className="App">
         <Router>
-          <div>
+          <>
             {/* <nav>
               <ul>
                 <li>
@@ -33,9 +34,12 @@ class App extends Component {
               <Route exact path="/asistencia">
                 <Asistencia></Asistencia>
               </Route>
+              <Route exact path="/reporte">
+                <Report></Report>
+              </Route>
               <Route exact path="/ingreso"></Route>
             </Switch>
-          </div>
+          </>
         </Router>
       </Wrapper>
     );
