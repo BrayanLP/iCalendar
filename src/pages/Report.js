@@ -8,16 +8,16 @@ import { Main } from '../containers/style';
 import { CardDashboardLists, Col2 } from '../components/card/style';
 
 const data = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
   datasets: [
     {
-      label: 'My First dataset',
+      label: 'Tardanza mensual',
       backgroundColor: 'rgba(24,200,255,0.2)',
       borderColor: '#3498db',
       borderWidth: 1,
       hoverBackgroundColor: 'rgba(26,288,156,0.4)',
       hoverBorderColor: '#3498db',
-      data: [65, 59, 80, 81, 56, 55, 40]
+      data: [10, 20, 2, 0, 0, 0, 5, 8]
     }
   ]
 };
@@ -31,48 +31,67 @@ class Report extends Component {
       <>
         <Navbar></Navbar>
         <Main>
-          <Title>Brayan Laureano Paucar</Title>
+          <Title>!Hola, Brayan Laureano Paucar</Title>
           <CardDashboardLists className="cards-list">
             <CardDashboard
-              time="30 min "
+              time="10 min "
               description="tardanzas"
             ></CardDashboard>
-            <CardDashboard time="30 min " description="permiso"></CardDashboard>
+            <CardDashboard time="20 min " description="permiso"></CardDashboard>
             <CardDashboard
-              time="30 min "
+              time="60 min "
               description="Tiempo Extra"
             ></CardDashboard>
             <CardDashboard
-              time="30 min "
+              time="5 dias"
               description="Vacaciones"
             ></CardDashboard>
             <CardDashboard
-              time="30 min "
+              time="2 dias"
               description="Ausencias"
             ></CardDashboard>
-            <CardDashboard
-              time="30 min "
-              description="Diferencial"
-            ></CardDashboard>
+            <CardDashboard time="1 h" description="Diferencial"></CardDashboard>
           </CardDashboardLists>
           <Col2 className="middle">
             <div>
               <h2> Asistencia semanal</h2>
               <Timeline lineColor={'#ddd'}>
-                <TimelineItem key="001" dateText="11/2010 – Present">
-                  <h3>Title, Company</h3>
-                  <p>Est incididunt sint eu minim dolore</p>
+                <TimelineItem key="001" dateText="Lunes">
+                  {/* <h3>Ingreso 09:30am</h3> */}
+                  <p>
+                    Ingreso 09:30am <br></br> Salida 07:00 pm
+                  </p>
                 </TimelineItem>
-                <TimelineItem key="002" dateText="04/2009 – 11/2010">
-                  <h3>Title, Company</h3>
-                  <p>Est incididunt sint eu minim dol</p>
+                <TimelineItem key="001" dateText="Martes">
+                  {/* <h3>Ingreso 09:30am</h3> */}
+                  <p>
+                    Ingreso 09:30am <br></br> Salida 07:00 pm
+                  </p>
+                </TimelineItem>
+                <TimelineItem key="001" dateText="Miercoles">
+                  {/* <h3>Ingreso 09:30am</h3> */}
+                  <p>
+                    Ingreso 09:30am <br></br> Salida 07:00 pm
+                  </p>
+                </TimelineItem>
+                <TimelineItem key="001" dateText="Jueves">
+                  {/* <h3>Ingreso 09:30am</h3> */}
+                  <p>
+                    Ingreso 09:30am <br></br> Salida 07:00 pm
+                  </p>
+                </TimelineItem>
+                <TimelineItem key="001" dateText="Viernes">
+                  {/* <h3>Ingreso 09:30am</h3> */}
+                  <p>
+                    Ingreso 09:30am <br></br> Salida 07:00 pm
+                  </p>
                 </TimelineItem>
               </Timeline>
             </div>
 
             <div>
               <h2> Estado 12 últimos meses</h2>
-              <Bar data={data} options={{ maintainAspectRatio: false }} />
+              <Bar data={data} />
             </div>
           </Col2>
         </Main>

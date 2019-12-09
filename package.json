@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.23",
+    "@reach/router": "^1.2.1",
     "chart.js": "^2.9.3",
     "formik": "^2.0.6",
     "instascan": "^1.0.0",

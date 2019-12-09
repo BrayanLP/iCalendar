@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import QrCard from '../components/card/qr';
 import QrComponent from '../containers/qr';
 import Text from '../components/Text';
-
+import { Link } from '@reach/router';
 class Ingreso extends Component {
   render() {
     return (
@@ -13,10 +13,10 @@ class Ingreso extends Component {
           footer={
             <ul>
               <li>
-                <a href="/">Utilizar otro método de ingreso</a>
+                <Link to="/">Utilizar otro método de ingreso</Link>
               </li>
               <li>
-                <a href="/">ver reporte</a>
+                <Link to="/reporte">ver reporte</Link>
               </li>
             </ul>
           }
