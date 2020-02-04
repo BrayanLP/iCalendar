@@ -4,8 +4,11 @@ import { Timeline, TimelineItem } from 'vertical-timeline-component-for-react';
 import { Bar } from 'react-chartjs-2';
 import Navbar from '../components/Navbar';
 import Title from '../components/Title';
-import { Main } from '../containers/style';
+import { Main } from '../components/App/style';
 import { CardDashboardLists, Col2 } from '../components/card/style';
+import { database, firestore } from '../firebase';
+// import { FirestoreCollection } from 'react-firestore';
+import { O2A } from 'object-to-array-convert';
 
 const data = {
   labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
@@ -26,12 +29,53 @@ class Report extends Component {
     super(props);
     this.state = {};
   }
+  componentDidMount() {
+    console.log('cargando...');
+    this.getList();
+    // firestore
+    //   .collection('todolist')
+    //   .get()
+    //   .then(querySnapshot => {
+    //     querySnapshot.forEach(doc => {
+    //       console.log(`${doc.id} => ${doc.data()}`);
+    //     });
+    //   });
+    // console.log(todo);
+  }
+  getList = () => {
+    database.ref('/todolist').on('value', snapshot => {
+      const list = O2A(snapshot);
+      console.log('TCL: Report -> getList -> list', list);
+      return list;
+    });
+    console.log(data);
+  };
+
   render() {
     return (
       <>
         <Navbar></Navbar>
         <Main>
           <Title>!Hola, Brayan Laureano Paucar</Title>
+          {/* <FirestoreCollection
+            path={'todolist'}
+            render={({ isLoading, data, snapshot }) => {
+              console.log(
+                'TCL: Report -> render ->  isLoading, data,snapshot',
+                isLoading,
+                data,
+                snapshot
+              );
+              return (
+                <div>
+                  listado de cosas, {data} {snapshot}
+                  {data.map((res, index) => (
+                    <div>{res}</div>
+                  ))}
+                </div>
+              );
+            }}
+          ></FirestoreCollection> */}
           <CardDashboardLists className="cards-list">
             <CardDashboard
               time="10 min "
@@ -56,31 +100,31 @@ class Report extends Component {
             <div>
               <h2> Asistencia semanal</h2>
               <Timeline lineColor={'#ddd'}>
-                <TimelineItem key="001" dateText="Lunes">
+                <TimelineItem key="1" dateText="Lunes">
                   {/* <h3>Ingreso 09:30am</h3> */}
                   <p>
                     Ingreso 09:30am <br></br> Salida 07:00 pm
                   </p>
                 </TimelineItem>
-                <TimelineItem key="001" dateText="Martes">
+                <TimelineItem key="2" dateText="Martes">
                   {/* <h3>Ingreso 09:30am</h3> */}
                   <p>
                     Ingreso 09:30am <br></br> Salida 07:00 pm
                   </p>
                 </TimelineItem>
-                <TimelineItem key="001" dateText="Miercoles">
+                <TimelineItem key="3" dateText="Miercoles">
                   {/* <h3>Ingreso 09:30am</h3> */}
                   <p>
                     Ingreso 09:30am <br></br> Salida 07:00 pm
                   </p>
                 </TimelineItem>
-                <TimelineItem key="001" dateText="Jueves">
+                <TimelineItem key="4" dateText="Jueves">
                   {/* <h3>Ingreso 09:30am</h3> */}
                   <p>
                     Ingreso 09:30am <br></br> Salida 07:00 pm
                   </p>
                 </TimelineItem>
-                <TimelineItem key="001" dateText="Viernes">
+                <TimelineItem key="5" dateText="Viernes">
                   {/* <h3>Ingreso 09:30am</h3> */}
                   <p>
                     Ingreso 09:30am <br></br> Salida 07:00 pm

@@ -23,7 +23,7 @@ export const Header = styled.header`
 
         a {
           margin: 0 1rem;
-          color: #3498db;
+          color: #22272a;
           text-decoration: none;
         }
       }

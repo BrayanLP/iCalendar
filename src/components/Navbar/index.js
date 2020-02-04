@@ -6,11 +6,12 @@ export default props => {
     <Header>
       <nav>
         <div className="logo" style={{ 'margin-top': '8px' }}>
-          <img
+          {/* <img
             width="130"
             src="https://rcp.pe/img/rcpWebLogo.png"
             alt="RCP"
-          ></img>
+          ></img> */}
+          <h1>iCalendar</h1>
         </div>
         <ul>
           <li>

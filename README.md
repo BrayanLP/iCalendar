@@ -39,3 +39,23 @@ npm start
 [captura3]: /src/assets/captura3.png 'Pantalla 1'
 [captura4]: /src/assets/captura4.png 'Pantalla 1'
 [captura5]: /src/assets/captura5.png 'Pantalla 1'
+
+## Pages
+
+Vista de las pagina principales
+
+## Containers
+
+Van los connect de redux y parsean la data al component
+
+## Components
+
+Aquí va al logica para mostrar y vistas exportables
+
+## Helpers
+
+Funciones de ayuda que se pueden reutilizar
+
+## Store
+
+Almacena los estados de la aplicaciones

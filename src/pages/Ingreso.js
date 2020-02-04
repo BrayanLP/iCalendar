@@ -3,17 +3,33 @@ import QrCard from '../components/card/qr';
 import QrComponent from '../containers/qr';
 import Text from '../components/Text';
 import { Link } from '@reach/router';
+import TecladoComponent from '../components/Teclado';
 class Ingreso extends Component {
   render() {
     return (
       <>
         <Text type="h1">Ingreso de Personal</Text>
-        <QrCard
+        {/* <QrCard
           title={'Acerca tu Qr a la camara para marcar tu asistencia.'}
           footer={
             <ul>
               <li>
-                <Link to="/">Utilizar otro método de ingreso</Link>
+                <Link to="/">Utilizar teclado</Link>
+              </li>
+              <li>
+                <Link to="/reporte">ver reporte</Link>
+              </li>
+            </ul>
+          }
+        > 
+          <QrComponent></QrComponent>
+        </QrCard> */}
+        <QrCard
+          title={'ingresa tu DN para marcar tu asistencia.'}
+          footer={
+            <ul>
+              <li>
+                <Link to="/">Utilizar lector de QR</Link>
               </li>
               <li>
                 <Link to="/reporte">ver reporte</Link>
@@ -21,7 +37,8 @@ class Ingreso extends Component {
             </ul>
           }
         >
-          <QrComponent></QrComponent>
+          <TecladoComponent></TecladoComponent>
+          {/* <QrComponent></QrComponent> */}
         </QrCard>
       </>
     );

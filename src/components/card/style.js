@@ -5,7 +5,8 @@ export const CardWrapper = styled.div`
   background: white;
   width: 450px;
   margin: 0 auto;
-  height: 550px;
+  min-height: 550px;
+  height: auto;
   text-align: center;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   border-radius: 3px;
@@ -66,20 +67,20 @@ export const CardDashboard = styled.div`
     padding-bottom: 6px;
   }
   &:nth-child(n) {
-    background: #18dcff;
+    background: #4b4b4b;
   }
   &:nth-child(2n) {
     background: #ffaf40;
   }
   &:nth-child(3n) {
-    background: #7158e2;
-  }
-  &:nth-child(4n) {
     background: #3ae374;
   }
-  &:nth-child(5n) {
-    background: #4b4b4b;
-  }
+  // &:nth-child(4n) {
+  //   background: #3ae374;
+  // }
+  // &:nth-child(5n) {
+  //   background: #4b4b4b;
+  // }
 `;
 export const CardDashboardLists = styled.section`
   width: 100%;
